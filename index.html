@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepean Networks — White-Label SD-WAN for MSPs &amp; Enterprises</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #112240;
+    --accent: #00c2ff;
+    --accent-soft: rgba(0,194,255,0.12);
+    --accent-glow: rgba(0,194,255,0.25);
+    --white: #f0f6ff;
+    --muted: rgba(240,246,255,0.55);
+  }
+
+  html, body {
+    height: 100%;
+    background: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(0,194,255,0.13) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(0,120,200,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(0,50,100,0.18) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,194,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,194,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+  }
+
+  .top-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    z-index: 10;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 680px;
+    background: rgba(17,34,64,0.7);
+    border: 1px solid rgba(0,194,255,0.18);
+    border-radius: 20px;
+    padding: 56px 60px 48px;
+    backdrop-filter: blur(20px);
+    box-shadow:
+      0 0 0 1px rgba(0,194,255,0.06),
+      0 24px 80px rgba(0,0,0,0.5),
+      0 0 60px rgba(0,194,255,0.06) inset;
+    animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    animation: fadeUp 0.7s 0.1s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .logo-wrap img {
+    height: 52px;
+    width: auto;
+    display: block;
+  }
+
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), rgba(0,194,255,0.2));
+    border-radius: 2px;
+    margin: 0 auto 32px;
+    animation: fadeUp 0.7s 0.2s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .tagline {
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeUp 0.7s 0.25s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .body-text {
+    font-size: 15.5px;
+    font-weight: 300;
+    line-height: 1.78;
+    color: rgba(240,246,255,0.82);
+    text-align: center;
+    margin-bottom: 44px;
+    animation: fadeUp 0.7s 0.3s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .body-text strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .contact-block {
+    border-top: 1px solid rgba(0,194,255,0.12);
+    padding-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    animation: fadeUp 0.7s 0.4s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  .contact-label {
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(0,194,255,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .contact-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--accent);
+  }
+
+  .contact-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(240,246,255,0.75);
+  }
+
+  .contact-text a {
+    color: rgba(240,246,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-text a:hover {
+    color: var(--accent);
+  }
+
+  .contact-text strong {
+    display: block;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 1px;
+  }
+
+  .website-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--accent), #0090cc);
+    color: var(--navy);
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: opacity 0.2s, transform 0.2s;
+    align-self: center;
+    box-shadow: 0 4px 24px rgba(0,194,255,0.25);
+  }
+
+  .website-btn:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  .website-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--navy);
+  }
+
+  @media (max-width: 580px) {
+    .card { padding: 40px 28px 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+<div class="page">
+  <div class="card">
+
+    <div class="logo-wrap">
+      <img src="https://nepeannetworks.com/main/wp-content/uploads/2023/10/Nepean_Networks-full-colour-logo-720x180-1.png" alt="Nepean Networks" />
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="tagline">White-Label SD-WAN for MSPs &amp; Enterprises</p>
+
+    <p class="body-text">
+      <strong>Nepean Networks</strong> delivers a fully white-labelled SD-WAN platform built exclusively for Managed Service Providers and enterprises. Powered by the Antares platform, our solution gives MSPs the infrastructure to offer intelligent, multi-link wide area networking under their own brand — with centralised management, automatic failover, and cloud-optimised routing — without building the underlying technology themselves.
+    </p>
+
+    <div class="contact-block">
+      <p class="contact-label">North America</p>
+
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div class="contact-text">
+          <strong>Nepean Networks Pte Ltd</strong>
+          1207 Delaware Ave #1299<br>Wilmington, DE 19806
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.57 1 1 0 01-.25 1.01l-2.2 2.21z"/></svg>
+        </div>
+        <div class="contact-text">
+          <a href="tel:+19728258290">+1 (972) 825 8290</a>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div class="contact-text">
+          <a href="mailto:contact@nepeannetworks.com">contact@nepeannetworks.com</a>
+        </div>
+      </div>
+
+      <a class="website-btn" href="https://nepeannetworks.com" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm-1 17.93V18a1 1 0 00-1-1H8a3 3 0 01-3-3v-1l5 5v-.07zM18.92 15H18a1 1 0 00-1 1v1.93A8.03 8.03 0 014.07 10H5a1 1 0 001-1V8a1 1 0 011-1h2a1 1 0 000-2H7.07A8.03 8.03 0 0119.93 13H19a1 1 0 00-1 1v1h.92z"/></svg>
+        nepeannetworks.com
+      </a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
